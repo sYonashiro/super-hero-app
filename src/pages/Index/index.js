@@ -28,14 +28,16 @@ export default class Index extends Component {
         <h3>SUPER HERO APP</h3>
       </header>
       <div className="container">
-        <input 
-          type="text" className="search-field"
-          placeholder="Digite o nome do personagem"
-        />
+        <div className="input-container">
+          <input 
+            type="text" className="search-field"
+            placeholder="Digite o nome do personagem"
+          />
+        </div>
         <div className="card-container">
           {this.state.heroes.map(hero => (
             <div key={hero.id} className="card">
-              <img src={hero.images.sm} alt="hero-img"/>
+              <img src={hero.images.sm} alt="hero-img" className="card-img"/>
               <div>
                 <h2 className="title">{hero.name}</h2>
               </div>
