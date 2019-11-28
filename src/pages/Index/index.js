@@ -5,7 +5,8 @@ import api from '../../services/api';
 
 export default class Index extends Component {
   state = {
-    heroes: []
+    heroes: [],
+    filteredHeroes: []
   };
 
   componentDidMount() {
@@ -17,7 +18,26 @@ export default class Index extends Component {
     let response = await api.get('/all.json');
 
     this.setState({
-      heroes: response.data
+      heroes: response.data,
+      filteredHeroes: response.data
+    });
+  }
+
+  heroExists(name, filter) {
+    const lowerCaseName = name.toLowerCase();
+    const lowerCaseFilter = filter.toLowerCase();
+
+    return lowerCaseName.includes(lowerCaseFilter);
+  }
+
+  handleChange = (event) => {
+    const filter = event.target.value;
+
+    const filteredHeroes = this.state.heroes.filter(hero => this.heroExists(hero.name, filter));
+
+    this.setState({
+      ...this.state,
+      filteredHeroes: filteredHeroes
     });
   }
 
@@ -32,10 +52,11 @@ export default class Index extends Component {
           <input 
             type="text" className="search-field"
             placeholder="Digite o nome do personagem"
+            onChange={this.handleChange}
           />
         </div>
         <div className="card-container">
-          {this.state.heroes.map(hero => (
+          {this.state.filteredHeroes.map(hero => (
             <div key={hero.id} className="card">
               <img src={hero.images.sm} alt="hero-img" className="card-img"/>
               <div>
