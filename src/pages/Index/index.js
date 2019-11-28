@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 
 import './styles.css';
 import api from '../../services/api';
+import { Container, InputContainer, SearchInput, CardContainer, Card } from './styles';
 
 export default class Index extends Component {
   state = {
@@ -47,27 +48,26 @@ export default class Index extends Component {
       <header className="header">
         <h3>SUPER HERO APP</h3>
       </header>
-      <div className="container">
-        <div className="input-container">
-          <input
-            type="text" className="search-field"
+      <Container>
+        <InputContainer>
+          <SearchInput
             placeholder="Digite o nome do personagem"
             onChange={this.handleChange}
           />
-        </div>
-        <div className="card-container">
+        </InputContainer>
+        <CardContainer>
           {this.state.filteredHeroes.map(hero => (
-            <div key={hero.id} className="card">
-              <img src={hero.images.sm} alt="hero-img" className="card-img"/>
+            <Card key={hero.id}>
+              <img src={hero.images.sm} alt="hero-img" />
               <div>
-                <h2 className="title">{hero.name}</h2>
-                <h4 className="subtitle">{hero.biography.fullName ? hero.biography.fullName : hero.name}</h4>
-                <h5 className="info">{hero.biography.publisher}</h5>
+                <h2>{hero.name}</h2>
+                <h4>{hero.biography.fullName ? hero.biography.fullName : hero.name}</h4>
+                <h5>{hero.biography.publisher}</h5>
               </div>
-            </div>
+            </Card>
           ))}
-        </div>
-      </div>
+        </CardContainer>
+      </Container>
       </>
     );
   }
