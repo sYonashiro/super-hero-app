@@ -53,8 +53,16 @@ body {
   background-color: white;
 }
 
-.title {
+.title, .subtitle, .info{
   margin: 10px;
+}
+
+.subtitle {
+  color: gray;
+}
+
+.info {
+  color: #008fbb;
 }
 
 @media (max-width: 768px) {

@@ -49,7 +49,7 @@ export default class Index extends Component {
       </header>
       <div className="container">
         <div className="input-container">
-          <input 
+          <input
             type="text" className="search-field"
             placeholder="Digite o nome do personagem"
             onChange={this.handleChange}
@@ -61,6 +61,8 @@ export default class Index extends Component {
               <img src={hero.images.sm} alt="hero-img" className="card-img"/>
               <div>
                 <h2 className="title">{hero.name}</h2>
+                <h4 className="subtitle">{hero.biography.fullName ? hero.biography.fullName : hero.name}</h4>
+                <h5 className="info">{hero.biography.publisher}</h5>
               </div>
             </div>
           ))}
