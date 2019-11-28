@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 
-import './styles.css';
 import api from '../../services/api';
-import { Container, InputContainer, SearchInput, CardContainer, Card } from './styles';
+import { Container, InputContainer, CardContainer } from './styles';
+import HeroCard from '../../components/HeroCard';
+import SearchInput from '../../components/SearchInput';
 
 export default class Index extends Component {
   state = {
@@ -50,21 +51,11 @@ export default class Index extends Component {
       </header>
       <Container>
         <InputContainer>
-          <SearchInput
-            placeholder="Digite o nome do personagem"
-            onChange={this.handleChange}
-          />
+          <SearchInput onChange={this.handleChange} />
         </InputContainer>
         <CardContainer>
           {this.state.filteredHeroes.map(hero => (
-            <Card key={hero.id}>
-              <img src={hero.images.sm} alt="hero-img" />
-              <div>
-                <h2>{hero.name}</h2>
-                <h4>{hero.biography.fullName ? hero.biography.fullName : hero.name}</h4>
-                <h5>{hero.biography.publisher}</h5>
-              </div>
-            </Card>
+            <HeroCard hero={hero} />
           ))}
         </CardContainer>
       </Container>
