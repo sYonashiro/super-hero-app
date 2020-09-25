@@ -5,6 +5,12 @@ Projeto apresentado na live ▶ [React com Styled Components](https://youtu.be/q
 
 O projeto é um website que lista informações de diversos personagens de quadrinhos, animes, séries e filmes, consumindo a [Super Hero API](https://superheroapi.com/).
 
+<h3>
+    <a href="https://syonashiro.github.io/styled-components-live/">📑 Acessar demonstração do projeto</a>
+<h3>
+
+---
+
 ## 🚀 Tecnologias utilizadas
 
 - [ReactJS](https://pt-br.reactjs.org/)
