@@ -1,5 +1,6 @@
 {
-  "name": "styled-components-live",
+  "name": "super-hero-app",
+  "homepage": "https://syonashiro.github.io/super-hero-app/",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
